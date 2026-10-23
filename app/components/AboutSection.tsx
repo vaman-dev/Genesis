@@ -90,12 +90,12 @@ export default function AboutSection() {
           <div className="about-panel-content relative z-10">
             <p className="about-description-p">
               Brawlers, gear up! The GDXR Club is dropping into the arena with
-              the Fifth Edition of GENESIS 2026 — and this time, the battle is
+              the Sixth Edition of GENESIS 2027 and this time, the battle is
               closer to home than ever!
             </p>
             <p className="about-description-p">
-              After the last showdown in 2025, GENESIS is back, bigger and
-              bolder. This isn&apos;t just about pixels, code, or pressing buttons —
+              After the last showdown in 2026, GENESIS is back, bigger and
+              bolder. This isn&apos;t just about pixels, code, or pressing buttons
               it&apos;s about unleashing your inner Brawler, teaming up, showing
               off your skills, and turning your passion for gaming into an epic
               real-world showdown. Lock and load, Brawlers. It&apos;s time to make

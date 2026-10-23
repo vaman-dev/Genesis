@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { sounds } from "./components/sound";
+import CountdownSection from "./components/CountdownSection";
 import AboutSection from "./components/AboutSection";
 import TimelineSection from "./components/TimelineSection";
 import PrizePoolSection from "./components/PrizePoolSection";
@@ -962,6 +963,9 @@ export default function Home() {
       </div>
     </section>
 
+    {/* ── LIVE TIMER AT THE HERO / ABOUT BOUNDARY ────────── */}
+    <CountdownSection />
+
     {/* ── SECTION 2: ABOUT GENESIS (STATIC SECTION) ──────── */}
     <AboutSection />
 
@@ -980,6 +984,7 @@ export default function Home() {
     {/* ── SECTION 7: FAQS (INTERACTIVE ACCORDION & CATEGORIES) ─ */}
     <FAQSection />
 
+    {/* ── SECTION 8: CONTACT US ──────────────────────────── */}
     <ContactSection />
 
       {/* ── FULL-SCREEN VIEWPORT SIDE DOCK INDICATORS (6 SECTIONS) ──────── */}

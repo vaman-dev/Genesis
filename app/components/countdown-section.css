@@ -1,0 +1,127 @@
+/* Compact Hero/About boundary timer. All rules remain countdown-scoped. */
+.genesis-power {
+  --genesis-power-panel-width: min(76vw, 500px);
+  position: relative;
+  z-index: 45;
+  isolation: isolate;
+  width: 100%;
+  height: 0;
+  overflow: visible;
+  color: #fff;
+  pointer-events: none;
+}
+
+.genesis-power__content {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--genesis-power-panel-width);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.genesis-power__content::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 14% 7% 11%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(114, 63, 237, 0.34) 0%,
+    rgba(36, 21, 91, 0.16) 54%,
+    transparent 76%
+  );
+  filter: blur(18px);
+}
+.genesis-power__artwork {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 189 / 167;
+  filter: drop-shadow(0 14px 19px rgba(0, 0, 0, 0.5));
+}
+
+.genesis-power__base,
+.genesis-power__overlay {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.genesis-power__base {
+  object-fit: contain;
+}
+
+.genesis-power__overlay {
+  overflow: visible;
+  pointer-events: none;
+}
+.genesis-power__live-numbers {
+  fill: white;
+  font-family: var(--font-lilita), var(--font-brawl), "Arial Black", Impact, sans-serif;
+  font-size: 8.45px;
+  font-weight: 950;
+  paint-order: stroke fill;
+  stroke: #050818;
+  stroke-width: .55px;
+  letter-spacing: -.08px;
+}
+.genesis-power__token-number {
+  fill: #fff;
+  font-family: var(--font-lilita), var(--font-brawl), "Arial Black", Impact, sans-serif;
+  font-size: 13.5px;
+  font-weight: 950;
+  paint-order: stroke fill;
+  stroke: #050017;
+  stroke-width: 2.5px;
+}
+.genesis-power__segment--charging {
+  animation: genesis-power-segment-breathe 2.9s ease-in-out infinite;
+}
+
+.genesis-power__accessible-timer {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+}
+
+/* Reserve room inside About while its original background remains visible. */
+.genesis-power + .about-section {
+  padding-top: clamp(220px, 16vw, 246px);
+}
+
+@keyframes genesis-power-segment-breathe {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.78;
+  }
+}
+
+@media (max-width: 767px) {
+  .genesis-power {
+    --genesis-power-panel-width: min(94vw, 390px);
+  }
+
+  .genesis-power + .about-section {
+    padding-top: clamp(158px, 45vw, 195px);
+  }
+
+  .genesis-power__artwork {
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.48));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .genesis-power__segment--charging {
+    animation: none;
+  }
+}
