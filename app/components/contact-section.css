@@ -1,0 +1,181 @@
+/* GENESIS Contact Us. All selectors are namespaced to keep the existing landing page intact. */
+.genesis-contact {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: max(100svh, 890px);
+  overflow: hidden;
+  padding: clamp(34px, 4.6svh, 57px) 18px 0;
+  color: #fff;
+  background: #07133d;
+}
+
+.genesis-contact__background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.genesis-contact__background-image {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.genesis-contact__content {
+  position: relative;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, 640px);
+  padding-bottom: 28px;
+  text-align: center;
+}
+
+.genesis-contact__title,
+.genesis-contact__person-name,
+.genesis-contact__venue-title {
+  display: block;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.genesis-contact__title { width: min(420px, 84vw); }
+.genesis-contact__sprite { display: block; width: 100%; height: auto; }
+
+.genesis-contact__people {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 2.4svh, 28px);
+  margin-top: clamp(30px, 6.7svh, 87px);
+}
+
+.genesis-contact__person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.genesis-contact__person-name { width: clamp(135px, 26vw, 210px); }
+.genesis-contact__person:nth-child(2) .genesis-contact__person-name { width: clamp(112px, 21vw, 161px); }
+
+.genesis-contact__phone {
+  display: block;
+  width: clamp(210px, 27vw, 267px);
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+.genesis-contact__phone:hover { transform: translateY(-2px) scale(1.035); filter: drop-shadow(0 4px 10px rgba(255, 188, 22, .3)); }
+.genesis-contact__phone:active { transform: translateY(1px) scale(.98); }
+.genesis-contact__phone:focus-visible,
+.genesis-contact__map-link:focus-visible,
+.genesis-contact__social:focus-visible {
+  outline: 3px solid #ffde32;
+  outline-offset: 4px;
+}
+
+.genesis-contact__venue-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: clamp(15px, 3svh, 35px);
+}
+.genesis-contact__venue-title { width: 153px; }
+
+.genesis-contact__map-frame {
+  box-sizing: border-box;
+  width: clamp(194px, 24vw, 240px);
+  aspect-ratio: 1.13;
+  overflow: hidden;
+  border: 5px solid #ffd943;
+  border-radius: 20px;
+  background: #f4f7ff;
+  box-shadow: 0 5px 0 #ab670a, 0 13px 26px rgba(0, 0, 0, .55);
+}
+.genesis-contact__map { display: block; width: 100%; height: 100%; border: 0; }
+
+.genesis-contact__map-link {
+  display: inline-block;
+  margin-top: 13px;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 224, 99, .62);
+  border-radius: 10px;
+  color: #fff;
+  background: rgba(5, 24, 72, .80);
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  text-shadow: 0 1px 2px #020d30;
+}
+.genesis-contact__map-link:hover { background: #164b99; }
+
+.genesis-contact__footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: calc(100% + 36px);
+  min-height: 76px;
+  margin: auto -18px 0;
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255, 221, 127, .28);
+  background: rgba(3, 9, 27, .63);
+  backdrop-filter: blur(6px);
+}
+.genesis-contact__socials { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 36px; }
+.genesis-contact__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 7px 10px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .07em;
+  text-decoration: none;
+  text-shadow: 0 2px 2px #061335;
+  transition: transform 180ms ease, color 180ms ease;
+}
+.genesis-contact__social svg { flex: none; width: 24px; height: 24px; }
+.genesis-contact__social:hover { transform: translateY(-2px); color: #ffde32; }
+
+@media (max-width: 767px) {
+  .genesis-contact {
+    min-height: max(100svh, 790px);
+    padding: 34px 16px 0;
+  }
+  .genesis-contact__background-image { object-position: 50% center; }
+  .genesis-contact__content { padding-bottom: 30px; }
+  .genesis-contact__title { width: min(340px, 92vw); }
+  .genesis-contact__people { margin-top: 30px; gap: 10px; }
+  .genesis-contact__person-name { width: min(183px, 53vw); }
+  .genesis-contact__person:nth-child(2) .genesis-contact__person-name { width: min(148px, 43vw); }
+  .genesis-contact__phone { width: min(244px, 72vw); }
+  .genesis-contact__venue-block { margin-top: 14px; }
+  .genesis-contact__venue-title { width: 133px; }
+  .genesis-contact__map-frame { width: min(270px, 76vw); aspect-ratio: 1.16; }
+  .genesis-contact__footer { width: calc(100% + 32px); margin-inline: -16px; }
+  .genesis-contact__socials { gap: 6px 16px; }
+  .genesis-contact__social { font-size: 11px; letter-spacing: .04em; }
+  .genesis-contact__social svg { width: 21px; height: 21px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .genesis-contact__phone,
+  .genesis-contact__social { transition: none; }
+  .genesis-contact__phone:hover,
+  .genesis-contact__phone:active,
+  .genesis-contact__social:hover { transform: none; }
+}

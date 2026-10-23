@@ -9,6 +9,7 @@ import PrizePoolSection from "./components/PrizePoolSection";
 import MemoriesSection from "./components/MemoriesSection";
 import SponsorsSection from "./components/SponsorsSection";
 import FAQSection from "./components/FAQSection";
+import ContactSection from "./components/ContactSection";
 
 // Deterministic twinkling stars with individual drift offsets
 const STARS = Array.from({ length: 90 }, (_, i) => ({
@@ -37,7 +38,7 @@ export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const [isLogoHovered, setIsLogoHovered] = useState(false);
-  const lastSectionRef = useRef<"hero" | "about" | "timeline" | "prizepool" | "memories" | "sponsors" | "faq">("hero");
+  const lastSectionRef = useRef<"hero" | "about" | "timeline" | "prizepool" | "memories" | "sponsors" | "faq" | "contact">("hero");
 
   useEffect(() => {
     const media = window.matchMedia("(max-width: 767px)");
@@ -105,7 +106,7 @@ export default function Home() {
     const container = containerRef.current;
     if (!container) return;
 
-    const sectionIds = ["hero", "about", "timeline", "prizepool", "memories", "sponsors", "faq"] as const;
+    const sectionIds = ["hero", "about", "timeline", "prizepool", "memories", "sponsors", "faq", "contact"] as const;
     const sectionElements = sectionIds.map((id) => document.getElementById(id));
     let sectionOffsets = sectionElements.map((element, index) => element?.offsetTop ?? window.innerHeight * index);
     let frame = 0;
@@ -119,8 +120,10 @@ export default function Home() {
       const scrollY = container.scrollTop;
       const height = window.innerHeight;
 
-      let current: "hero" | "about" | "timeline" | "prizepool" | "memories" | "sponsors" | "faq" = "hero";
-      if (scrollY >= sectionOffsets[6] - height * 0.35) {
+      let current: "hero" | "about" | "timeline" | "prizepool" | "memories" | "sponsors" | "faq" | "contact" = "hero";
+      if (scrollY >= sectionOffsets[7] - height * 0.35) {
+        current = "contact";
+      } else if (scrollY >= sectionOffsets[6] - height * 0.35) {
         current = "faq";
       } else if (scrollY >= sectionOffsets[5] - height * 0.35) {
         current = "sponsors";
@@ -162,9 +165,13 @@ export default function Home() {
           document.getElementById("sponsors")?.scrollIntoView({ behavior: "smooth" });
         } else if (lastSectionRef.current === "sponsors") {
           document.getElementById("faq")?.scrollIntoView({ behavior: "smooth" });
+        } else if (lastSectionRef.current === "faq") {
+          document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
         }
       } else if (e.key === "ArrowUp" || e.key === "PageUp") {
-        if (lastSectionRef.current === "faq") {
+        if (lastSectionRef.current === "contact") {
+          document.getElementById("faq")?.scrollIntoView({ behavior: "smooth" });
+        } else if (lastSectionRef.current === "faq") {
           document.getElementById("sponsors")?.scrollIntoView({ behavior: "smooth" });
         } else if (lastSectionRef.current === "sponsors") {
           document.getElementById("memories")?.scrollIntoView({ behavior: "smooth" });
@@ -972,6 +979,8 @@ export default function Home() {
 
     {/* ── SECTION 7: FAQS (INTERACTIVE ACCORDION & CATEGORIES) ─ */}
     <FAQSection />
+
+    <ContactSection />
 
       {/* ── FULL-SCREEN VIEWPORT SIDE DOCK INDICATORS (6 SECTIONS) ──────── */}
       {false && <aside aria-label="Page Sections" className="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3 pointer-events-auto">
