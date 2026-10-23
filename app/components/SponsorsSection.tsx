@@ -246,31 +246,24 @@ export default function SponsorsSection() {
             </div>
           </div>
 
-          {/* MOBILE (<= 768px): Horizontal Swipeable Gallery with CSS Scroll Snapping */}
+          {/* MOBILE (< 768px): Centered Vertical Sponsor Showcase */}
           <div className="md:hidden w-full flex flex-col items-center mt-3">
-            {/* Subheading Badge */}
             <div className="bg-blue-950/80 border border-blue-500/40 rounded-full px-4 py-1 text-xs font-bold text-cyan-300 uppercase tracking-widest mb-3 shadow-[0_0_12px_rgba(6,182,212,0.3)]">
-              Current Sponsors ✦ Swipe
+              Current Sponsors
             </div>
 
-            {/* Horizontal Swipe Carousel Container */}
-            <div
-              className="w-full flex overflow-x-auto snap-x snap-mandatory scroll-smooth gap-4 px-4 py-3 no-scrollbar"
-              style={{
-                overscrollBehaviorX: "contain",
-                WebkitOverflowScrolling: "touch",
-              }}
-            >
+            <div className="w-full flex flex-col items-center gap-4 sm:gap-5 px-2 py-3">
               {SPONSOR_CARDS.map((card) => (
                 <div
                   key={card.id}
-                  className="flex-shrink-0 w-[82vw] max-w-[320px] aspect-[320/180] snap-center relative"
+                  className="relative w-[90%] max-w-[340px] aspect-[320/180]"
                 >
                   <div className="relative w-full h-full transition-transform duration-200 active:scale-[0.98]">
                     <Image
                       src={card.svgPath}
                       alt={card.name}
                       fill
+                      sizes="(max-width: 377px) 90vw, 340px"
                       className="object-contain drop-shadow-[0_6px_14px_rgba(0,0,0,0.7)]"
                       loading="lazy"
                       decoding="async"
@@ -280,16 +273,24 @@ export default function SponsorsSection() {
               ))}
             </div>
 
-            {/* Swipe dots indicator for mobile */}
-            <div className="flex items-center gap-1.5 mt-3 mb-8">
-              {SPONSOR_CARDS.map((card, idx) => (
-                <span
-                  key={card.id}
-                  className={`w-2 h-2 rounded-full ${
-                    idx === 0 ? "bg-cyan-400 scale-125" : "bg-blue-900/60"
-                  }`}
+            <div className="relative w-full max-w-[480px] flex justify-end px-4 sm:px-6 pt-1 pb-2 pointer-events-none">
+              <div
+                className="relative w-[clamp(110px,32vw,155px)] aspect-[245/300] animate-spike-pop select-none"
+                style={{
+                  filter: "drop-shadow(0 0 22px rgba(34, 211, 238, 0.55)) drop-shadow(0 14px 28px rgba(0, 0, 0, 0.9))",
+                }}
+                aria-hidden="true"
+              >
+                <Image
+                  src="/landing-pages/sponsors/ui/shadow-spike.svg"
+                  alt=""
+                  fill
+                  sizes="(max-width: 767px) 32vw, 155px"
+                  className="object-contain"
+                  loading="lazy"
+                  decoding="async"
                 />
-              ))}
+              </div>
             </div>
           </div>
 
@@ -299,7 +300,7 @@ export default function SponsorsSection() {
 
       {/* ── 3. Bottom-Right Character Decoration: Shadow Spike (Popping Out, Non-Clickable) ──────── */}
       <div 
-        className="absolute bottom-3 sm:bottom-5 md:bottom-7 lg:bottom-9 right-2 sm:right-4 md:right-8 lg:right-10 w-[155px] h-[190px] sm:w-[185px] sm:h-[227px] md:w-[215px] md:h-[264px] lg:w-[245px] lg:h-[300px] pointer-events-none z-30 animate-spike-pop select-none"
+        className="hidden md:block absolute bottom-3 sm:bottom-5 md:bottom-7 lg:bottom-9 right-2 sm:right-4 md:right-8 lg:right-10 w-[155px] h-[190px] sm:w-[185px] sm:h-[227px] md:w-[215px] md:h-[264px] lg:w-[245px] lg:h-[300px] pointer-events-none z-30 animate-spike-pop select-none"
         style={{
           filter: "drop-shadow(0 0 22px rgba(34, 211, 238, 0.55)) drop-shadow(0 14px 28px rgba(0, 0, 0, 0.9))",
         }}
