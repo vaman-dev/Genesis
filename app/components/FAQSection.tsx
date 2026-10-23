@@ -51,7 +51,7 @@ export default function FAQSection() {
   return (
     <section
       id="faq"
-      className="relative z-10 flex min-h-screen w-full shrink-0 select-none flex-col items-center justify-start overflow-x-hidden overflow-y-visible bg-[#030015] px-3 py-12 text-white sm:px-6 sm:py-16 lg:px-8 lg:py-20"
+      className="relative z-10 flex min-h-screen w-full shrink-0 select-none flex-col items-center justify-start overflow-x-hidden overflow-y-visible bg-[#030015] px-3 py-12 text-white sm:px-6 sm:py-16 lg:min-h-0 lg:px-8 lg:pt-[clamp(175px,27svh,245px)] lg:pb-[clamp(88px,12svh,136px)]"
       aria-label="Frequently Asked Questions"
     >
       {/* ── 1. COSMIC BRAWL STARS PATTERN BACKGROUND ── */}
@@ -74,7 +74,7 @@ export default function FAQSection() {
       </div>
 
       {/* Responsive FAQ arcade assembly: title, categories, and question panel */}
-      <div className="faq-layout-shell relative z-10 mt-8 grid w-full max-w-[1320px] grid-cols-1 items-start gap-5 sm:mt-12 sm:gap-6 lg:mt-20 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-7 xl:grid-cols-[260px_minmax(0,1fr)] xl:gap-8">
+      <div className="faq-layout-shell relative z-10 mt-8 grid w-full max-w-[1320px] grid-cols-1 items-start gap-5 sm:mt-12 sm:gap-6 lg:mt-0 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-7 xl:grid-cols-[260px_minmax(0,1fr)] xl:gap-8">
         {/* ── 2. TOP: ORANGE FAQ HEADING BANNER ── */}
         <div className="relative flex w-full shrink-0 flex-col items-center lg:col-span-2">
           <h2 className="sr-only">Frequently Asked Questions</h2>
