@@ -59,23 +59,12 @@ export default function FAQAccordionItem({
         onMouseEnter={handleHover}
         className="faq-question-btn w-full min-h-[50px] sm:min-h-[56px] md:min-h-[62px] lg:min-h-[66px] flex items-center justify-between gap-4 text-left cursor-pointer select-none group transition-colors"
       >
-        {/* Left: Question Heading (Figma SVG for sm+ viewports, responsive typography for mobile) */}
+        {/* Left: Question heading */}
         <div className="flex-1 min-w-0 pr-3 flex items-center">
           {/* Accessible screen reader label */}
           <span className="sr-only">{item.question}</span>
 
-          {/* Master Figma SVG on sm+ viewports */}
-          <div className="hidden sm:flex items-center pointer-events-none select-none max-w-full">
-            <img loading="lazy" decoding="async"
-              src={item.questionSvg}
-              alt=""
-              aria-hidden="true"
-              className="h-[18px] sm:h-[20px] md:h-[22px] lg:h-[24px] max-w-full object-contain object-left pointer-events-none"
-            />
-          </div>
-
-          {/* Clean responsive font on narrow mobile screens (<640px) to prevent clipping */}
-          <span className="block sm:hidden font-lilita uppercase font-bold text-white text-xs sm:text-sm tracking-wide leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          <span className="faq-question-label">
             {item.question}
           </span>
         </div>
